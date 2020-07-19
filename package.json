@@ -20,10 +20,6 @@
         "react-scripts": "^3.2.0",
         "terminal.css": "^0.6.5"
     },
-    "devDependencies": {
-        "gh-pages": "^2.0.1"
-    },
-    "homepage": "http://akojif.github.io/password-gen",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
