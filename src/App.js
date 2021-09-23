@@ -236,7 +236,7 @@ class App extends Component {
             }}
           >
             Made with <span style={{ color: "#e25555" }}>&#9829;</span> by{" "}
-            <a href="http://github.com/akojif">Akoji Francis</a>
+            <a href="http://github.com/akojif">Francis Akoji</a>
           </div>
         </div>
       </div>
