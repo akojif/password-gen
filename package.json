@@ -27,9 +27,6 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build"
   },
-  "engines": {
-    "node": "18"
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
