@@ -3,47 +3,30 @@ export class RandomPassword {
     this.characters = "";
   }
   setLength(length) {
-      this.length = length;
-      return this;
+    this.length = length;
+    return this;
   }
   setUpperCase(isUpperCase) {
-    if (isUpperCase) {
-      this.characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
+    if (isUpperCase) this.characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return this;
   }
   setLowerCase(isLowerCase) {
-    if (isLowerCase) {
-      this.characters += "abcdefghijklmnopqrstuvwxyz";
-    }
+    if (isLowerCase) this.characters += "abcdefghijklmnopqrstuvwxyz";
     return this;
   }
   setNumberCase(isNumeric) {
-    if (isNumeric) {
-      this.characters += "0123456789";
-    }
+    if (isNumeric) this.characters += "0123456789";
     return this;
   }
   setSymbol(isSymbolic) {
-    if (isSymbolic) {
-      this.characters += "!@$%^&*()<>,.?/[]{}-=_+";
-    }
+    if (isSymbolic) this.characters += "!@$%^&*()<>,.?/[]{}-=_+";
     return this;
   }
   generate() {
-    let characterList = this.characters;
-    if (characterList.length <= 0) {
-      return "May'be you're in search of unknown! Keep looking";
-    }
-    var password = "";
-    for (let i = 0; i < this.length; ++i) {
-      password += characterList[getRandomInt(0, characterList.length - 1)];
-    }
-    return password;
+    const chars = this.characters;
+    if (chars.length === 0) return "Select at least one character set";
+    const bytes = new Uint32Array(this.length);
+    crypto.getRandomValues(bytes);
+    return Array.from(bytes, b => chars[b % chars.length]).join("");
   }
 }
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
